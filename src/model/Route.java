@@ -1,4 +1,4 @@
-package backend;
+package model;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ public class Route {
         this.positionList = positionList;
     }
 
-    Position getNextPosition(Position position){
+    Position getNextPosition(Position position) {
         int index = positionList.indexOf(position);
         if (index == (positionList.size() - 1)) {
             index = 0;
