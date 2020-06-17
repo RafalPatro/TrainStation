@@ -12,10 +12,21 @@ import java.util.Random;
 public class DrawTrains {
 
     int scale;
+    List<Circle> trainsGUI;
+    List<Train> trains;
+
+    public void setTrains(List<Train> trains) {
+        this.trains = trains;
+    }
+
+    public void setTrainsGUI(List<Circle> trainsGUI) {
+        this.trainsGUI = trainsGUI;
+    }
 
     public DrawTrains(int scale) {
         this.scale = scale;
     }
+
 
     private double scaledPosition(double position) {
         return position * scale;
@@ -41,25 +52,10 @@ public class DrawTrains {
 
     }
 
-    public void drawActualPosition(List<Train> trains, List<Circle> circles) {
-        Runnable r = () -> {
-            for (; ; ) {
-                for (int i = 0; i < trains.size(); i++) {
-                    circles.get(i).setCenterX(trains.get(i).getPositionX() * scale);
-                    circles.get(i).setCenterY(trains.get(i).getPositionY() * scale);
-                }
-                try {
-                    Thread.sleep(10);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                    Thread.currentThread().interrupt();
-                }
-            }
-        };
 
-        Thread th = new Thread(r);
-
-        th.start();
-
+    public void update(Train t) {
+        int i = trains.indexOf(t);
+        trainsGUI.get(i).setCenterX(scaledPosition(t.getPositionX()));
+        trainsGUI.get(i).setCenterY(scaledPosition(t.getPositionY()));
     }
 }
