@@ -1,5 +1,6 @@
 package view;
 
+import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -55,7 +56,10 @@ public class DrawTrains {
 
     public void update(Train t) {
         int i = trains.indexOf(t);
-        trainsGUI.get(i).setCenterX(scaledPosition(t.getPositionX()));
-        trainsGUI.get(i).setCenterY(scaledPosition(t.getPositionY()));
+        Platform.runLater(() -> {
+            trainsGUI.get(i).setCenterX(scaledPosition(t.getPositionX()));
+            trainsGUI.get(i).setCenterY(scaledPosition(t.getPositionY()));
+        });
+
     }
 }

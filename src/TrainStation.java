@@ -25,7 +25,7 @@ public class TrainStation extends Application {
     @Override
     public void start(Stage primaryStage) {
         Group root = new Group();
-        int scale = 50;
+        int scale = 30;
         Position trainStationPosition = new Position(12, 8, true);
         DrawTrains dt = new DrawTrains(scale);
 

@@ -28,7 +28,7 @@ public class RouteInit {
         route2Positions.add(new Position(6, 11));
         route2Positions.add(new Position(4, 9));
         route2Positions.add(new Position(3, 13));
-        route2Positions.add(new Position(0, 8));
+        route2Positions.add(new Position(1, 8));
         route2Positions.add(new Position(2, 5));
         route2Positions.add(new Position(6, 5));
         route2Positions.add(new Position(8, 2));
@@ -38,7 +38,7 @@ public class RouteInit {
         route3Positions.add(trainStationPosition);
         route3Positions.add(initPositions.get(2));
         route3Positions.add(new Position(15, 2));
-        route3Positions.add(new Position(13, 0));
+        route3Positions.add(new Position(13, 1));
         route3Positions.add(new Position(10, 1));
         route3Positions.add(new Position(8, 5));
 
