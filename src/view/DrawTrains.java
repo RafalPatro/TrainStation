@@ -1,8 +1,11 @@
 package view;
 
+
 import javafx.application.Platform;
 import javafx.scene.Group;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import model.Train;
 
@@ -38,12 +41,15 @@ public class DrawTrains {
 
         List<Circle> trainCircles = new ArrayList<>();
 
+        Image image = new Image("file:images/train.jpg");
         for (Train t : trains) {
             Circle c = new Circle();
             c.setCenterX(scaledPosition(t.getPositionX()));
             c.setCenterY(scaledPosition(t.getPositionY()));
             c.setRadius(20);
-            c.setFill(Color.rgb(new Random().nextInt(255), new Random().nextInt(255), new Random().nextInt(255)));
+            c.setFill(new ImagePattern(image));
+            c.setStroke(Color.rgb(new Random().nextInt(255), new Random().nextInt(255), new Random().nextInt(255)));
+            c.setStrokeWidth(3);
             trainCircles.add(c);
             root.getChildren().add(c);
         }
@@ -60,6 +66,5 @@ public class DrawTrains {
             trainsGUI.get(i).setCenterX(scaledPosition(t.getPositionX()));
             trainsGUI.get(i).setCenterY(scaledPosition(t.getPositionY()));
         });
-
     }
 }
